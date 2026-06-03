@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using StudentEnrollment.API.Data;
 using StudentEnrollment.API.Models.Domain;
+using StudentEnrollment.API.Models.DTO;
 
 namespace StudentEnrollment.API.Controllers
 {
@@ -15,7 +16,16 @@ namespace StudentEnrollment.API.Controllers
         public IActionResult GetAllStudents()
         {
             var students = _dbContext.Students.ToList();
-            return Ok(students);
+
+            var studentsDTO = students.Select(s => new StudentDTO
+            {
+                Id = s.Id,
+                StudentName = s.StudentName,
+                Programme = s.Programme,
+                EnrollmentStatus = s.EnrollmentStatus
+            }).ToList();
+
+            return Ok(studentsDTO);
         }
 
         // B1 – GET: https://localhost:port/api/students/{id}
@@ -30,23 +40,51 @@ namespace StudentEnrollment.API.Controllers
                 return NotFound();
             }
 
-            return Ok(student);
+            var studentDTO = new StudentDTO
+            {
+                Id = student.Id,
+                StudentName = student.StudentName,
+                Programme = student.Programme,
+                EnrollmentStatus = student.EnrollmentStatus
+            };
+
+            return Ok(studentDTO);
         }
 
         // B2 – POST: https://localhost:port/api/students
         [HttpPost]
-        public IActionResult CreateStudent([FromBody] Student student)
+        public IActionResult CreateStudent([FromBody] AddStudentRequestDTO addStudentRequestDTO)
         {
+            if (addStudentRequestDTO == null)
+            {
+                return BadRequest("Student data is null.");
+            }
+
+            var student = new Student
+            {
+                StudentName = addStudentRequestDTO.StudentName,
+                Programme = addStudentRequestDTO.Programme,
+                EnrollmentStatus = addStudentRequestDTO.EnrollmentStatus
+            };
+
             _dbContext.Students.Add(student);
             _dbContext.SaveChanges();
 
-            return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, student);
+            var studentDTO = new StudentDTO
+            {
+                Id = student.Id,
+                StudentName = student.StudentName,
+                Programme = student.Programme,
+                EnrollmentStatus = student.EnrollmentStatus
+            };
+
+            return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, studentDTO);
         }
 
         // B3 – PUT: https://localhost:port/api/students/{id}
         [HttpPut]
         [Route("{id:int}")]
-        public IActionResult UpdateStudent([FromRoute] int id, [FromBody] Student updatedStudent)
+        public IActionResult UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequestDTO updateStudentRequestDTO)
         {
             var student = _dbContext.Students.FirstOrDefault(s => s.Id == id);
 
@@ -55,13 +93,21 @@ namespace StudentEnrollment.API.Controllers
                 return NotFound();
             }
 
-            student.StudentName = updatedStudent.StudentName;
-            student.Programme = updatedStudent.Programme;
-            student.EnrollmentStatus = updatedStudent.EnrollmentStatus;
+            student.StudentName = updateStudentRequestDTO.StudentName;
+            student.Programme = updateStudentRequestDTO.Programme;
+            student.EnrollmentStatus = updateStudentRequestDTO.EnrollmentStatus;
 
             _dbContext.SaveChanges();
 
-            return Ok(student);
+            var studentDTO = new StudentDTO
+            {
+                Id = student.Id,
+                StudentName = student.StudentName,
+                Programme = student.Programme,
+                EnrollmentStatus = student.EnrollmentStatus
+            };
+
+            return Ok(studentDTO);
         }
 
         // B4 – DELETE: https://localhost:port/api/students/{id}
@@ -79,7 +125,7 @@ namespace StudentEnrollment.API.Controllers
             _dbContext.Students.Remove(student);
             _dbContext.SaveChanges();
 
-            return Ok();
+            return NoContent();
         }
     }
 }
