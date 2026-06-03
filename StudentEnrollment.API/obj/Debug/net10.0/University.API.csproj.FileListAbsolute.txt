@@ -1,0 +1,8 @@
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.csproj.AssemblyReference.cache
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.AssemblyInfoInputs.cache
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.AssemblyInfo.cs
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.csproj.CoreCompileInputs.cache
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Keisha Nalani\Documents\VS Code\PE\PracticalTest\StudentEnrollment.API\obj\Debug\net10.0\University.API.MvcApplicationPartsAssemblyInfo.cache
