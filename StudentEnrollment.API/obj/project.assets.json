@@ -3168,11 +3168,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keisha Nalani\\Documents\\VS Code\\PE\\PracticalTest\\StudentEnrollment.API\\StudentEnrollment.API.csproj",
+      "projectUniqueName": "C:\\Users\\Keisha Nalani\\Documents\\GitHub\\SWE2309441_PracticalTest\\StudentEnrollment.API\\StudentEnrollment.API.csproj",
       "projectName": "StudentEnrollment.API",
-      "projectPath": "C:\\Users\\Keisha Nalani\\Documents\\VS Code\\PE\\PracticalTest\\StudentEnrollment.API\\StudentEnrollment.API.csproj",
+      "projectPath": "C:\\Users\\Keisha Nalani\\Documents\\GitHub\\SWE2309441_PracticalTest\\StudentEnrollment.API\\StudentEnrollment.API.csproj",
       "packagesPath": "C:\\Users\\Keisha Nalani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keisha Nalani\\Documents\\VS Code\\PE\\PracticalTest\\StudentEnrollment.API\\obj\\",
+      "outputPath": "C:\\Users\\Keisha Nalani\\Documents\\GitHub\\SWE2309441_PracticalTest\\StudentEnrollment.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Keisha Nalani\\AppData\\Roaming\\NuGet\\NuGet.Config"
