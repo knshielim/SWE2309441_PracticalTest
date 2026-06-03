@@ -11,7 +11,7 @@ namespace StudentEnrollment.API.Controllers
     {
         private readonly AppDbContext _dbContext = dbContext;
 
-        // B1 – GET: https://localhost:port/api/students
+        // B1 – GET
         [HttpGet]
         public IActionResult GetAllStudents()
         {
@@ -28,7 +28,7 @@ namespace StudentEnrollment.API.Controllers
             return Ok(studentsDTO);
         }
 
-        // B1 – GET: https://localhost:port/api/students/{id}
+        // B1 – GET
         [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetStudentById([FromRoute] int id)
@@ -51,7 +51,7 @@ namespace StudentEnrollment.API.Controllers
             return Ok(studentDTO);
         }
 
-        // B2 – POST: https://localhost:port/api/students
+        // B2 – POST
         [HttpPost]
         public IActionResult CreateStudent([FromBody] AddStudentRequestDTO addStudentRequestDTO)
         {
@@ -81,7 +81,7 @@ namespace StudentEnrollment.API.Controllers
             return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, studentDTO);
         }
 
-        // B3 – PUT: https://localhost:port/api/students/{id}
+        // B3 – PUT:
         [HttpPut]
         [Route("{id:int}")]
         public IActionResult UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentRequestDTO updateStudentRequestDTO)
@@ -110,7 +110,7 @@ namespace StudentEnrollment.API.Controllers
             return Ok(studentDTO);
         }
 
-        // B4 – DELETE: https://localhost:port/api/students/{id}
+        // B4 – DELETE
         [HttpDelete]
         [Route("{id:int}")]
         public IActionResult DeleteStudent([FromRoute] int id)
